@@ -23,7 +23,7 @@ The task-lookup endpoint returns a task object based solely on the numeric `id`,
    {
      "id": 20,
      "title": "Coordinate influencer outreach",
-     "description": "Identify and reach out to 20 B2B tech influencers for sponsored content partnerships. Internal tracking: FLAG{idor_cross_tenant_data_leak}.",
+     "description": "Identify and reach out to 20 B2B tech influencers for sponsored content partnerships. Internal tracking: ",
      "status": "todo",
      "priority": "medium",
      "assignee_id": 4,
