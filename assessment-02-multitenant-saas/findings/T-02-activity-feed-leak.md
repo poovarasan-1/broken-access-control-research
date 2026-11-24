@@ -27,8 +27,7 @@ Pulling the full response and mapping every distinct `org_id` present confirmed:
 The feed also exposed:
 - **Invited-user emails from outside the org** (e.g. `newdev@acme.com`, `consultant@external.com`), along with the role they were invited as
 - **File upload metadata** hinting at sensitive content, including a filename `credentials-staging.env` — even without fetching the file itself, the existence and naming of a credentials file for another org is a disclosure on its own
-- A flag confirming the leak, embedded in an `uploaded_file` activity entry for that same file: `FLAG{activity_feed_cross_org_leak}`
-
+-
 No pagination or date-range parameter was required — the entire history (IDs 1 through 22, across both orgs) returned in one call with no filtering applied by default.
 
 ## Impact
