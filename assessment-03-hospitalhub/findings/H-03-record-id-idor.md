@@ -29,7 +29,7 @@ The clinical records viewer accepts `record_id` as a sequential integer with no 
    Dx-imaging-10042
    Created: 2025-11-15
    Clinical Notes
-   Provider Notes: Confidential incident summary. Internal token: FLAG{idor_record_10042_7c4d8f}. Do not share.
+   Provider Notes: Confidential incident summary. Internal token: FLAG. Do not share.
    ```
 
 ## Impact
