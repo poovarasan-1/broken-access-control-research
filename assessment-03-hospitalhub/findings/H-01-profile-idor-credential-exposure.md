@@ -30,7 +30,7 @@ Response embedded my own full record, including:
   "email": "amorgan@hospitalhub.local",
   "password_hash": "$2a$10$8eXyZmqp.aabcdef9PEHPKAAA.uV8/Xt0vJh3pXn1xJq2dB7eCmDXX",
   "auth_token": "authtok-a3f5b21c9d",
-  "mfa_secret": "FLAG{exposed_mfa_a91d3e}",
+  "mfa_secret":"JBSWY3DPEHPK3PXP-CMO-SEED" ,
   "private_notes": "Reviews cardiology consults."
 }
 ```
