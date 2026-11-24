@@ -27,7 +27,7 @@ GET /portal/search?q=&clinic_id=2 HTTP/1.1
 ```http
 GET /portal/search?q=&clinic_id=3 HTTP/1.1
 ```
-→ **Saint Mercy Hospital**: Vivian Cole, DOB 1977-04-11, note field containing `FLAG{tenant_bypass_b2e5c1}` labeled explicitly as "Cross-clinic note."
+→ **Saint Mercy Hospital**: Vivian Cole, DOB 1977-04-11, note field containing `FLAG labeled explicitly as "Cross-clinic note."
 
 ## Impact
 
