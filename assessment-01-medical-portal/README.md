@@ -29,7 +29,7 @@ F-05 is the headline finding of this assessment: a low-privilege patient account
 
 ## Evidence
 
-Screenshots for each finding are in [`screenshots/`](./screenshots), organized by finding ID. All tokens, cookies, and lab flags are redacted.
+Screenshots for each finding are in [`Evidence/`](./screenshots), organized by finding ID. All tokens, cookies, and lab flags are redacted.
 
 ## Tools
 
