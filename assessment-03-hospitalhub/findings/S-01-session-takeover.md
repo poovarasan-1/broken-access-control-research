@@ -78,7 +78,7 @@ GET /portal/admin HTTP/1.1
 Cookie: session=1
 ```
 
-Response (200 OK) returned a working admin interface, including a page describing a credential rotation process ("used to sign internal directives sent from the CMO's office") and a flag confirming full compromise: `FLAG{ato_chief_of_medicine_3e9c5b}`.
+Response (200 OK) returned a working admin interface, including a page describing a credential rotation process ("used to sign internal directives sent from the CMO's office") and a flag confirming full compromise.
 
 ## Impact
 
