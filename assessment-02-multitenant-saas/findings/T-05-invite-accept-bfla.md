@@ -22,7 +22,7 @@ Authorization: Bearer <redacted — my own account, no special invite/admin role
 Response (200 OK):
 ```json
 {"message":"Invite accepted successfully","project_uuid":"proj-acme-mobile-app-002",
-"role":"member","flag":"FLAG{invite_hijack_no_email_check}"}
+"role":"member"}
 ```
 
 Invite IDs are sequential (`INV-0001`, `INV-0002`, ...), not cryptographically random — they didn't require a leak to find, just direct enumeration.
