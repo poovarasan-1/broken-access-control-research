@@ -53,8 +53,7 @@ Using Caido's Automate feature, swept the `session` cookie across a small numeri
   "password_hash": "$2a$10$BeXyZmqp.aabcdef9PEHPKAAA.uV8/Xt0vJh3pXn1xJq2dB7eCmDXX",
   "auth_token": "authtok-d20a8c5e76",
   "mfa_secret": "totp-seed-kessler",
-  "private_notes": "Pager PIN reminder for self[...]",
-  "flag": "FLAG{api_leak_staff_4f7c9a}"
+  "private_notes": "Pager PIN reminder for self[...]"
 }
 ```
 
