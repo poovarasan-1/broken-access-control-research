@@ -64,10 +64,16 @@ Exploiting this low-privilege endpoint grants control over a security authority 
 - Add a process step to API version deprecation: confirm old routes are fully decommissioned (return `404`/`410` for all methods), not just removed from the current version's routing table.
 - Add logging/alerting on any successful call to an impersonation-style endpoint, since legitimate use of this feature (if any) should be rare and auditable.
 
+
 ## Evidence
 
-![v2 returns 404](../screenshots/f05/01-v2-404.png)
-![v1 GET also 404](../screenshots/f05/02-v1-get-404.png)
-![v1 POST with no body - userId required](../screenshots/f05/03-userid-required.png)
-![v1 POST with userId:10000 - superadmin token returned](../screenshots/f05/04-superadmin-token.png)
-![Confirming userId:10010 resolves to a real doctor account](../screenshots/f05/05-doctor-confirmation.png)
+![v2 returns 404](../Screenshots/F-05-impersonation-authbypass/01-v2-404.png)
+
+![v1 GET also 404](../Screenshots/F-05-impersonation-authbypass/02-v1-get-404.png)
+
+![v1 POST with no body - userId required](../Screenshots/F-05-impersonation-authbypass/03-userid-required.png)
+
+![v1 POST with userId:10000 - superadmin token returned](../Screenshots/F-05-impersonation-authbypass/04-superadmin-token.png)
+
+![Confirming userId:10010 resolves to a real doctor account](../Screenshots/F-05-impersonation-authbypass/05-doctor-confirmation.png)
+
