@@ -63,6 +63,12 @@ CVSS's base score (5.9) only reflects "integrity impact: high" on a single objec
 
 ## Evidence
 
-![Victim's appointment before modification](../screenshots/f04/01-victim-before.png)
-![PUT request sent as attacker account](../screenshots/f04/02-put-request.png)
-![Victim's appointment after modification — status changed](../screenshots/f04/03-victim-after.png)
+
+## Evidence
+
+![Victim's appointment before modification](../Screenshots/F-04-chained-cross-patient-write/01-victim-before.png)
+
+![PUT request sent as attacker account](../Screenshots/F-04-chained-cross-patient-write/02-put-request.png)
+
+![Victim's appointment after modification — status changed](../Screenshots/F-04-chained-cross-patient-write/03-victim-after.png)
+
