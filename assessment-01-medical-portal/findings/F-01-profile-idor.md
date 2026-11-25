@@ -59,4 +59,4 @@ An authenticated low-privilege patient account can read full profile records —
 ## Evidence
 
 ![Baseline Request](../Screenshots/F-01-profile-idor/01-baseline-request.png)
-![IDOR — numeric ID returns another user's record](../Screenshots/F01/02-idor-10002.png)
+![IDOR Evidence](../Screenshots/F-01-profile-idor/02-idor-10002.png)
