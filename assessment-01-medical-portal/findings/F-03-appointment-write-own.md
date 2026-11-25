@@ -45,7 +45,10 @@ The write path for this endpoint checks only that the caller is authenticated an
 - Consider splitting the endpoint into a patient-facing update (name, contact info) and a clinical-staff-only update (status, notes), rather than one shared PUT accepting any field.
 - Add schema/field-level validation so arbitrary or partial bodies can't silently modify fields they shouldn't touch.
 
+
 ## Evidence
 
-![PUT request changing status on own appointment](../screenshots/f03/01-put-own-status-change.png)
-![Response confirming status changed to completed](../screenshots/f03/02-response-completed.png)
+![PUT request changing status on own appointment](../Screenshots/F-03-appointment-write-own/01-put-own-status-change.png)
+
+![Response confirming status changed to completed](../Screenshots/F-03-appointment-write-own/02-response-completed.png)
+
