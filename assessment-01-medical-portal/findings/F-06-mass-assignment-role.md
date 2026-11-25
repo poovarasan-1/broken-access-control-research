@@ -47,9 +47,13 @@ The profile-update endpoint deserializes the entire request body directly onto t
 - Any privileged field (`role`, `status`, `org_id`) must be modifiable only through a separate, admin-only endpoint with its own authorization check.
 - Add tests asserting that a profile-update request containing a `role` field is either rejected or silently ignored for non-admin callers.
 
+
 ## Evidence
 
-![Own profile before - role: patient](../screenshots/f06/01-before-patient.png)
-![PUT request with role changed to doctor](../screenshots/f06/02-put-role-doctor.png)
-![Response confirming role: doctor](../screenshots/f06/03-response-doctor.png)
-![Doctor dashboard reached after re-login, Impersonate User visible](../screenshots/f06/04-doctor-dashboard.png)
+![Own profile before - role: patient](../Screenshots/F-06-mass-assignment-role/01-before-patient.png)
+
+![PUT request with role changed to doctor](../Screenshots/F-06-mass-assignment-role/02-put-role-doctor.png)
+
+![Response confirming role: doctor](../Screenshots/F-06-mass-assignment-role/03-response-doctor.png)
+
+![Doctor dashboard reached after re-login, Impersonate User visible](../Screenshots/F-06-mass-assignment-role/04-doctor-dashboard.png)
