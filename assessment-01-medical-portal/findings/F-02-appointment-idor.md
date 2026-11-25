@@ -49,5 +49,5 @@ Any authenticated patient account can read other patients' appointment records �
 
 ## Evidence
 
-![Own appointment — baseline](../screenshots/f02/01-baseline-own.png)
-![IDOR — another patient's appointment, different org](../screenshots/f02/02-idor-cross-org.png)
+![Own appointment — baseline](../Screenshots/F-02-appointment-idor/01-baseline-own.png)
+![IDOR — another patient's appointment, different org](../Screenshots/F-02-appointment-idor/02-idor-cross-org.png)
