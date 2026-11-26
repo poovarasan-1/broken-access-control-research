@@ -2,7 +2,7 @@
 
 - **CWE:** CWE-639 (Insecure Direct Object Reference) / Broken Object-Level Authorization (BOLA)
 - **OWASP:** A01:2021 Broken Access Control
-- **Endpoint:** `GET /api/tasks/{id}`
+- **Endpoint:** `GET /api/tasks/20`
 - **Severity:** Medium
 - **CVSS 3.1:** `AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N` — 6.5
 
