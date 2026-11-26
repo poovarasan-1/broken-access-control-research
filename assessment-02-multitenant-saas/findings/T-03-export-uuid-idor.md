@@ -52,4 +52,4 @@ The export endpoint checks "does a project with this UUID exist," exactly like T
 ## Evidence
 
 ![Export request using a UUID obtained from the activity feed, authenticated as a different org](../screenshots/t03/01-export-cross-org-uuid.png)
-![Full response showing organization name/UUID and nested tasks](../screenshots/t03/02-full-export-response.mp4)
+![Full response showing organization name/UUID and nested tasks](../screenshots/t03/02-full-export-response.gif)
