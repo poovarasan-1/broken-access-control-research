@@ -8,17 +8,33 @@
 
 ## Summary
 
-The task-lookup endpoint (`GET /api/tasks/{id}`) retrieves task records based on a user-supplied numeric object identifier without enforcing organization-level authorization. By modifying the task ID and testing other numeric identifiers, an authenticated user belonging to Organization 1 (Acme) was able to retrieve a task belonging to Organization 2. This demonstrates a cross-tenant Broken Object-Level Authorization (BOLA) vulnerability, commonly known as IDOR.
+The task-lookup endpoint (`GET /api/tasks/11`) retrieves task records based on a user-supplied numeric object identifier without enforcing organization-level authorization. By modifying the task ID and testing other numeric identifiers, an authenticated user belonging to Organization 1 (Acme) was able to retrieve a task belonging to Organization 2. This demonstrates a cross-tenant Broken Object-Level Authorization (BOLA) vulnerability, commonly known as IDOR.
 
 ## Steps to Reproduce
 
-1. Authenticated as a normal user in my own org (org_id 1 — "Acme").
-2. Sent `GET /api/tasks/20`:
+1. Authenticate to the application using a normal user account belonging to Organization 1 (`org_id: 1` — "Acme").
+
+2. Access a task belonging to your own organization and observe its numeric task ID through the API request.
+
+3. Send the request to retrieve your own task:
+   ```http
+   GET /api/tasks/11 HTTP/1.1
+   Authorization: Bearer <redacted>
+   ```
+
+4. Confirm that the API successfully returns the task belonging to Organization 1.
+
+5. Modify the numeric task ID to `20`, keeping the same authenticated session and authorization token.
+
+6. Send the modified request:
    ```http
    GET /api/tasks/20 HTTP/1.1
    Authorization: Bearer <redacted>
    ```
-3. Response (200 OK) returned a task belonging to a **different organization**:
+
+7. Observe that the server responds with `HTTP 200 OK` and returns task details belonging to a different organization (`org_id: 2`).
+
+   **Response:**
    ```json
    {
      "id": 20,
@@ -32,6 +48,8 @@ The task-lookup endpoint (`GET /api/tasks/{id}`) retrieves task records based on
      "org_id": 2
    }
    ```
+
+8. Confirm that the authenticated user still belongs to Organization 1, while the returned task belongs to Organization 2.
 
 ## What Confirms This Is Cross-Tenant (Not Just Cross-User)
 
@@ -53,4 +71,8 @@ The endpoint performs an authorization check of "does a task with this ID exist,
 
 ## Evidence
 
-![GET /api/tasks/20 returning org_id: 2 while authenticated as org 1](../screenshots/t01/01-task-20-cross-org.png)
+### 1. Baseline – Own Organization Task
+![Own organization task showing org_id 1](../screenshots/t01/01-own-org-task.png)
+
+### 2. Cross-Tenant BOLA – Task ID Manipulation
+![Task ID 20 returning org_id 2 while authenticated as org_id 1](../screenshots/t01/02-cross-org-task-20.png)
