@@ -1,4 +1,4 @@
-# T-03: UUID-Based IDOR on Project Export — Exploited via T-02's Leaked UUIDs
+# T-03: Cross-Tenant IDOR on Project Export — Exploited via T-02's Leaked Project Identifiers
 
 - **CWE:** CWE-639 (IDOR) / CWE-863 (Incorrect Authorization) — noted here specifically as "Authorization Bypass Through User-Controlled Key" with a UUID rather than a sequential integer
 - **OWASP:** A01:2021 Broken Access Control
@@ -8,22 +8,24 @@
 
 ## Summary
 
-Unlike T-01 and T-02, this endpoint's resource identifier is a real UUID (`7c9e6679-...`), not a guessable sequential integer. On its own, that should make brute-forcing infeasible. **The only reason this was exploitable is that T-02's activity feed leaked the UUID directly** — proving that UUIDs are not a substitute for an authorization check, only a (much weaker) substitute for one.
+The project export endpoint (`GET /api/projects//export`) fails to enforce organization-level authorization. An authenticated user belonging to one organization can retrieve another organization's project export by supplying its project identifier.
+
+The identifier is discoverable through T-02's unscoped activity feed, which exposes project identifiers belonging to other organizations. This creates a vulnerability chain in which T-02 enables identifier discovery and T-03 allows unauthorized cross-tenant project data access.
 
 ## Vulnerability Chain
 
 ```
-T-02 (activity feed, unscoped, leaks UUIDs) 
+T-02 (activity feed, unscoped,leaked project identifiers) 
   → T-03 (export endpoint, authz check missing, but normally "protected" by UUID-as-secret) 
   → Full project + org data exfiltration
 ```
 
 ## Steps to Reproduce
 
-1. From T-02's activity dump, obtained a project UUID belonging to the other org: `proj-glob-q4-market-001`, underlying UUID `7c9e6679-...`.
+1. From T-02's activity dump, obtained a project UUID belonging to the other org: `proj-glob-intern-tool-003`, underlying UUID `7c9e6679-...`.
 2. Requested the export endpoint for that project, authenticated as my own (different) org's account:
    ```http
-   GET /api/projects/proj-glob-q4-market-001/export HTTP/1.1
+   GET /api/projects/proj-glob-intern-tool-003/export HTTP/1.1
    Authorization: Bearer <redacted — my own org's token>
    ```
 3. Response (200 OK) returned the **full project object**, nesting:
@@ -31,7 +33,7 @@ T-02 (activity feed, unscoped, leaks UUIDs)
    - Full project metadata
    - A `tasks` array with presumably every task under that project
 
-4. Confirmed this wasn't project-specific by testing the other two org-2 project UUIDs obtained from the same activity dump (`proj-glob-data-plat-002`, `proj-glob-intern-tool-003`) — both also exported successfully.
+4. Confirmed this wasn't project-specific by testing the other two org-2 project UUIDs obtained from the same activity dump (`proj-glob-data-plat-001`, `proj-glob-intern-tool-002`) — both also exported successfully.
 
 ## Impact
 
@@ -50,4 +52,4 @@ The export endpoint checks "does a project with this UUID exist," exactly like T
 ## Evidence
 
 ![Export request using a UUID obtained from the activity feed, authenticated as a different org](../screenshots/t03/01-export-cross-org-uuid.png)
-![Full response showing organization name/UUID and nested tasks](../screenshots/t03/02-full-export-response.png)
+![Full response showing organization name/UUID and nested tasks](../screenshots/t03/02-full-export-response.gif)
