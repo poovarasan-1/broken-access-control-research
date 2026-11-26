@@ -8,7 +8,7 @@
 
 ## Summary
 
-The task-lookup endpoint returns a task object based solely on the numeric `id`, with no check that the task belongs to the caller's organization. Confirmed by fuzzing IDs in Caido and landing on a task that belonged to a different `org_id` than my own account.
+The task-lookup endpoint (`GET /api/tasks/{id}`) retrieves task records based on a user-supplied numeric object identifier without enforcing organization-level authorization. By modifying the task ID and testing other numeric identifiers, an authenticated user belonging to Organization 1 (Acme) was able to retrieve a task belonging to Organization 2. This demonstrates a cross-tenant Broken Object-Level Authorization (BOLA) vulnerability, commonly known as IDOR.
 
 ## Steps to Reproduce
 
@@ -39,7 +39,7 @@ I checked my own `org_id` before calling this a cross-tenant bug (see the note i
 
 ## Impact
 
-Any authenticated user, in any organization, can read task details — including internal descriptions and tracking notes — belonging to a completely different organization, just by incrementing the task ID. Task IDs are sequential integers with no tenant-scoping check at the object-lookup level.
+An authenticated user can access task records belonging to another organization by manipulating the numeric task identifier. This exposes cross-tenant task information, including internal descriptions, task status, priority, assignee information, and project references. Such unauthorized access could result in the disclosure of confidential organizational information.
 
 ## Root Cause
 
