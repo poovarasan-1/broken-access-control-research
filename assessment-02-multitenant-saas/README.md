@@ -22,7 +22,7 @@ A multi-tenant project/task management API — projects, tasks, comments, an act
 | [T-02](./findings/T-02-activity-feed-leak.md) | Unscoped activity feed — cross-org data and UUID leak | High | CWE-639 |
 | [T-03](./findings/T-03-export-uuid-idor.md) | UUID-based IDOR on project export, exploited via T-02's leaked UUIDs | High | CWE-639 |
 | [T-04](./findings/T-04-comment-write-injection.md) | Cross-tenant write — posting comments onto another org's task | High | CWE-639 |
-| [T-05](./findings/T-05-invite-accept-bfla.md) | BFLA on invite acceptance — no role check, no recipient-identity check | High | CWE-862 |
+| [T-05](./findings/T-05-Cross-Organization Invitation Hijacking via Missing Email Ownership Validation.md) | BFLA on invite acceptance — no role check, no recipient-identity checkCross-Organization Invitation Hijacking via Missing Email Ownership Validation | High | CWE-862 |
 
 T-02 → T-03 is the most instructive chain in this assessment: it demonstrates that UUID-based resource IDs are not a substitute for proper authorization checks — they only raise the bar to guessing, and this app leaked the UUIDs elsewhere anyway, fully defeating that protection.
 
