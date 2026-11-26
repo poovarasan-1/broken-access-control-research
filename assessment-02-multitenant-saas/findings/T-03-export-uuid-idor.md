@@ -2,13 +2,13 @@
 
 - **CWE:** CWE-639 (IDOR) / CWE-863 (Incorrect Authorization) — noted here specifically as "Authorization Bypass Through User-Controlled Key" with a UUID rather than a sequential integer
 - **OWASP:** A01:2021 Broken Access Control
-- **Endpoint:** `GET /api/projects/{uuid}/export`
+- **Endpoint:** `GET /api/projects/proj-glob-intern-tool-003/export`
 - **Severity:** High
 - **CVSS 3.1:** `AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N` — 8.2
 
 ## Summary
 
-The project export endpoint (`GET /api/projects//export`) fails to enforce organization-level authorization. An authenticated user belonging to one organization can retrieve another organization's project export by supplying its project identifier.
+The project export endpoint (`GET /api/projects/proj-glob-intern-tool-003/export`) fails to enforce organization-level authorization. An authenticated user belonging to one organization can retrieve another organization's project export by supplying its project identifier.
 
 The identifier is discoverable through T-02's unscoped activity feed, which exposes project identifiers belonging to other organizations. This creates a vulnerability chain in which T-02 enables identifier discovery and T-03 allows unauthorized cross-tenant project data access.
 
