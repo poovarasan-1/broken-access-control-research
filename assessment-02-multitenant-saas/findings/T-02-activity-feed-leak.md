@@ -51,4 +51,4 @@ Same family as T-01 — missing tenant scope — but at the aggregation layer in
 ## Evidence
 
 ![Activity feed returning mixed org_id values in one response](../screenshots/t02/01-activity-feed-mixed-orgs.png)
-![Full response showing invited-user emails and uploaded filenames](../screenshots/t02/02-full-response-leak-detail.png)
+![Full response showing invited-user emails and uploaded filenames](../screenshots/t02/02-full-response-leak-detail.gif)
