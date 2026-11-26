@@ -1,4 +1,4 @@
-# T-06: Cross-Organization Invitation Hijacking via Missing Email Ownership Validation
+# T-05: Cross-Organization Invitation Hijacking via Missing Email Ownership Validation
 
 ## 1. Overview
 
@@ -473,3 +473,10 @@ The application should ensure that only the intended, verified recipient can red
 - CWE-863 – Incorrect Authorization
 - OWASP Authorization Cheat Sheet
 - OWASP API Security Top 10 – API1:2023 Broken Object Level Authorization
+
+## 16.Evidence
+../screenshots/t06/01-activity-invite-discovery.png
+../screenshots/t06/02-cross-org-invitation-details.png
+../screenshots/t06/03-unauthorized-invite-acceptance.png
+../screenshots/t06/04-invitation-accepted-verification.png
+../screenshots/t06/05-invitation-ui-permission-limitation.png
