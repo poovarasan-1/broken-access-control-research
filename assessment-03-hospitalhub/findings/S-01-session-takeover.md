@@ -98,3 +98,18 @@ Session identifiers are generated as small, sequential, predictable integers ins
 
 1. **Replace session identifiers immediately** with cryptographically random tokens of sufficient length (minimum 128 bits of entropy), generated server-side using a secure random source.
 2. **Never serialize `password`, `password_hash`, `auth_token`, or
+
+
+## Evidence
+
+### 1. Baseline Session
+![Baseline session using session=42](../screenshots/s01/01-baseline-session-42.png)
+
+### 2. Predictable Session Enumeration
+![Caido Automate results showing predictable session values](../screenshots/s01/02-predictable-session-fuzzing.png)
+
+### 3. Confirmed Chief of Medicine Account Takeover
+![Authenticated as Dr. Evelyn Harlan](../screenshots/s01/03-chief-of-medicine-account-takeover.png)
+
+### 4. Confirmed Administrative Panel Access
+![Admin panel accessed using hijacked session](../screenshots/s01/04-admin-panel-access.png)
